@@ -1,13 +1,12 @@
-TAEKWONDO FACILE - V2 POSITIONS AMELIOREES
+TAEKWONDO FACILE - V3 ILLUSTRATIONS
 
-Les anciennes silhouettes trop schématiques ont été remplacées par des illustrations pédagogiques plus lisibles.
-Positions incluses :
-- Naranhi-seogi
-- Ap-seogi
-- Apkubi
-- Dwitkubi
-- Juchum-seogi
-- Kkoa-seogi
+Illustrations des positions retravaillées dans un style plus proche d'une fiche pédagogique de taekwondo :
+- pratiquant entier en dobok
+- posture globale lisible
+- pieds clairement visibles
+- fond simple et contrasté
+- une illustration distincte par position
+- repère de répartition du poids
 
-Chaque illustration indique aussi la répartition du poids et un repère technique.
-Le quiz visuel utilise ces nouvelles illustrations.
+Positions :
+Naranhi-seogi, Ap-seogi, Apkubi, Dwitkubi, Juchum-seogi, Kkoa-seogi.
