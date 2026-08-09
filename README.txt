@@ -1,17 +1,13 @@
-TAEKWONDO FACILE - VERSION GITHUB UTILISABLE
+TAEKWONDO FACILE - V2 POSITIONS AMELIOREES
 
-Contenu :
-- GIF en garde et GIF salut
-- voix coréenne avec préférence masculine
-- termes de base
-- phonétique simplifiée française
-- 6 positions avec une illustration distincte
-- fiche détaillée par position
-- quiz visuel image -> nom de la position
-- progression enregistrée
-- fonctionnement hors connexion
+Les anciennes silhouettes trop schématiques ont été remplacées par des illustrations pédagogiques plus lisibles.
+Positions incluses :
+- Naranhi-seogi
+- Ap-seogi
+- Apkubi
+- Dwitkubi
+- Juchum-seogi
+- Kkoa-seogi
 
-Pour GitHub Pages :
-1. créer un dépôt TAEKWONDO
-2. envoyer tous les fichiers de ce dossier à la racine
-3. Settings > Pages > Deploy from a branch > main > /(root)
+Chaque illustration indique aussi la répartition du poids et un repère technique.
+Le quiz visuel utilise ces nouvelles illustrations.
