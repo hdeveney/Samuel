@@ -1,48 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="300" height="360" viewBox="0 0 300 360">
-<rect width="300" height="360" rx="20" fill="#f6e7c9"/>
-<rect x="10" y="10" width="280" height="340" rx="18" fill="#fff4d9" stroke="#e0c98f"/>
-<text x="150" y="30" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#1f2937">Apkubi</text>
-<text x="150" y="49" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#475569">Position avant longue</text>
-<line x1="32" y1="315" x2="268" y2="315" stroke="#c4a76b" stroke-width="2"/>
-
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="340" viewBox="0 0 260 340">
+<rect width="260" height="340" rx="22" fill="#f8e9c9"/>
+<text x="130" y="27" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#172554">Apkubi</text>
+<text x="130" y="45" text-anchor="middle" font-family="Arial" font-size="11" fill="#475569">Position avant longue</text>
+<ellipse cx="130" cy="316" rx="105" ry="8" fill="#dccba6"/>
 <!-- head -->
-<circle cx="128" cy="91" r="24" fill="#8b5a2b"/>
-<path d="M106 85 Q128 56 150 85" stroke="#18181b" stroke-width="12" fill="none" stroke-linecap="round"/>
-<circle cx="120" cy="91" r="2.2" fill="#111827"/><circle cx="136" cy="91" r="2.2" fill="#111827"/>
-<path d="M122 102 Q128 106 134 102" stroke="#4b2e20" stroke-width="2" fill="none"/>
-
-<!-- torso dobok -->
-<path d="M96 118 L164 118 L157 170 L103 170 Z" fill="#ffffff" stroke="#374151" stroke-width="2.3"/>
-<path d="M104 120 L135 154 M156 120 L125 154" stroke="#cbd5e1" stroke-width="3"/>
-<rect x="100" y="159" width="60" height="9" rx="3" fill="#6d28d9"/>
-
-<!-- arms -->
-<line x1="102" y1="128" x2="72" y2="156" stroke="#ffffff" stroke-width="17" stroke-linecap="round"/>
-<line x1="72" y1="156" x2="102" y2="166" stroke="#ffffff" stroke-width="17" stroke-linecap="round"/>
-<line x1="158" y1="128" x2="188" y2="156" stroke="#ffffff" stroke-width="17" stroke-linecap="round"/>
-<line x1="188" y1="156" x2="158" y2="166" stroke="#ffffff" stroke-width="17" stroke-linecap="round"/>
-<line x1="102" y1="128" x2="72" y2="156" stroke="#374151" stroke-width="2"/>
-<line x1="72" y1="156" x2="102" y2="166" stroke="#374151" stroke-width="2"/>
-<line x1="158" y1="128" x2="188" y2="156" stroke="#374151" stroke-width="2"/>
-<line x1="188" y1="156" x2="158" y2="166" stroke="#374151" stroke-width="2"/>
-<circle cx="102" cy="166" r="8" fill="#8b5a2b"/><circle cx="158" cy="166" r="8" fill="#8b5a2b"/>
-
-<!-- pants / legs -->
-<line x1="118" y1="170" x2="86" y2="228" stroke="#ffffff" stroke-width="23" stroke-linecap="round"/>
-<line x1="86" y1="228" x2="48" y2="290" stroke="#ffffff" stroke-width="23" stroke-linecap="round"/>
-<line x1="142" y1="170" x2="174" y2="215" stroke="#ffffff" stroke-width="23" stroke-linecap="round"/>
-<line x1="174" y1="215" x2="220" y2="260" stroke="#ffffff" stroke-width="23" stroke-linecap="round"/>
-<line x1="118" y1="170" x2="86" y2="228" stroke="#374151" stroke-width="2"/>
-<line x1="86" y1="228" x2="48" y2="290" stroke="#374151" stroke-width="2"/>
-<line x1="142" y1="170" x2="174" y2="215" stroke="#374151" stroke-width="2"/>
-<line x1="174" y1="215" x2="220" y2="260" stroke="#374151" stroke-width="2"/>
-
+<circle cx="130" cy="84" r="27" fill="#8a552e"/>
+<path d="M105 80 Q130 45 155 80 Q150 58 130 55 Q110 58 105 80" fill="#171717"/>
+<ellipse cx="120" cy="84" rx="3" ry="4" fill="#111"/><ellipse cx="140" cy="84" rx="3" ry="4" fill="#111"/>
+<path d="M122 99 Q130 104 138 99" fill="none" stroke="#4b2e20" stroke-width="2"/>
+<!-- neck -->
+<rect x="122" y="106" width="16" height="15" rx="5" fill="#8a552e"/>
+<!-- dobok jacket full -->
+<path d="M92 120 Q130 108 168 120 L176 176 Q160 194 130 192 Q100 194 84 176 Z" fill="#fff" stroke="#4b5563" stroke-width="2"/>
+<path d="M100 121 L137 164 L158 121 M160 122 L123 164" fill="none" stroke="#cbd5e1" stroke-width="3"/>
+<!-- sleeves + forearms in guard -->
+<path d="M94 126 Q70 132 64 154 L78 164 Q88 149 104 144 Z" fill="#fff" stroke="#4b5563" stroke-width="2"/>
+<path d="M166 126 Q190 132 196 154 L182 164 Q172 149 156 144 Z" fill="#fff" stroke="#4b5563" stroke-width="2"/>
+<path d="M76 158 Q91 165 105 171" stroke="#8a552e" stroke-width="12" stroke-linecap="round"/>
+<path d="M184 158 Q169 165 155 171" stroke="#8a552e" stroke-width="12" stroke-linecap="round"/>
+<circle cx="106" cy="171" r="8" fill="#8a552e"/><circle cx="154" cy="171" r="8" fill="#8a552e"/>
+<!-- purple belt -->
+<rect x="91" y="174" width="78" height="11" rx="4" fill="#6d28d9"/>
+<path d="M127 180 L112 213" stroke="#6d28d9" stroke-width="9"/><path d="M135 180 L148 212" stroke="#6d28d9" stroke-width="9"/>
+<!-- trousers as filled polygons -->
+<path d="M103 190 L128 190 L84 216 L49 280 L28 278 L62 213 Z" fill="#fff" stroke="#4b5563" stroke-width="2"/>
+<path d="M132 190 L157 190 L161 202 L206 246 L185 244 L140 199 Z" fill="#fff" stroke="#4b5563" stroke-width="2"/>
 <!-- feet -->
-<ellipse cx="48" cy="300" rx="17" ry="8" fill="#8b5a2b"/>
-<ellipse cx="220" cy="270" rx="17" ry="8" fill="#8b5a2b"/>
-
-<!-- pedagogical marks -->
-<circle cx="48" cy="320" r="12" fill="#2563eb" opacity=".13"/>
-<circle cx="220" cy="290" r="12" fill="#dc2626" opacity=".13"/>
-<text x="150" y="338" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">Répartition du poids : 70 / 30</text>
+<path d="M24 284 Q38 277 58 288 Q46 296 24 292 Z" fill="#8a552e"/>
+<path d="M181 250 Q195 243 215 254 Q203 262 181 258 Z" fill="#8a552e"/>
 </svg>
