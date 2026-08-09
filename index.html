@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#172554">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Taekwondo Facile</title>
+<style>
+:root{--navy:#172554;--blue:#2563eb;--red:#dc2626;--green:#15803d;--cream:#fff8ed;--line:#e5e7eb;--purple:#6d28d9}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:var(--cream);color:#172033}
+header{background:linear-gradient(135deg,#172554,#2563eb);color:white;padding:16px}header h1{margin:0;font-size:1.6rem}
+main{max-width:820px;margin:auto;padding:14px}.hero{display:flex;gap:12px;align-items:center;background:white;border:1px solid var(--line);border-radius:20px;padding:12px}
+.hero img{width:125px;height:160px;object-fit:contain}.bubble{font-weight:800;font-size:1.05rem}.bubble span{display:block;font-weight:500;font-size:.9rem;margin-top:4px}
+.voice{margin-top:10px;background:white;border:1px solid var(--line);border-radius:16px;padding:12px}.voice select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:10px;margin:8px 0}
+.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:12px 0}.tab{border:0;background:white;border-radius:12px;padding:9px 3px;font-weight:800}.tab.active{background:var(--navy);color:white}
+.panel{display:none}.panel.active{display:block}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:12px;margin:8px 0}.term{font-weight:900;font-size:1.35rem;color:var(--navy)}.phon{color:var(--purple);font-weight:800}.cat{font-size:.72rem;font-weight:900;color:var(--red);text-transform:uppercase}
+.btn{border:0;background:var(--navy);color:#fff;padding:10px 12px;border-radius:11px;font-weight:800}.alt{background:white;color:var(--navy);border:1px solid #cbd5e1}
+.positions{display:grid;grid-template-columns:1fr;gap:9px}.poscard{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:center}.poscard img{width:110px;height:130px;object-fit:contain;border-radius:12px}
+.detail img{width:100%;max-height:330px;object-fit:contain}.choices{display:grid;gap:8px;margin-top:12px}.choice{padding:12px;background:#fff;border:1px solid #cbd5e1;border-radius:12px;text-align:left}.ok{background:#dcfce7!important}.bad{background:#fee2e2!important}
+.progress{height:12px;background:#e5e7eb;border-radius:99px;overflow:hidden}.bar{height:100%;background:var(--green)}.small{font-size:.8rem;color:#64748b}
+@media(min-width:700px){.positions{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><h1>🥋 Taekwondo Facile</h1><div>Termes • phonétique • positions • quiz</div></header>
+<main>
+<div class="hero"><img id="guide" src="tkd_garde.gif" alt="Jeune pratiquant de taekwondo"><div class="bubble" id="msg">Annyeong ! Prêt à apprendre ?<span>Choisis une position, écoute la prononciation et teste-toi.</span></div></div>
+<div class="voice"><b>🔊 Voix coréenne</b><div class="small">Priorité à une voix masculine coréenne si elle est identifiable sur l'appareil.</div><select id="voiceSelect"></select><button class="btn alt" id="testVoice">Tester la voix</button></div>
+<div class="tabs">
+<button class="tab active" data-t="terms">📚<br>Termes</button>
+<button class="tab" data-t="positions">🥋<br>Positions</button>
+<button class="tab" data-t="detail">👁️<br>Détail</button>
+<button class="tab" data-t="quiz">🎯<br>Quiz</button>
+<button class="tab" data-t="progress">⭐<br>Progrès</button>
+</div>
+<section id="terms" class="panel active"></section>
+<section id="positions" class="panel"><div class="positions" id="positionsList"></div></section>
+<section id="detail" class="panel"><div id="detailBox"></div></section>
+<section id="quiz" class="panel"><div id="quizBox"></div></section>
+<section id="progress" class="panel"><div class="card"><div class="term">Mes progrès</div><p id="stats"></p><div class="progress"><div id="bar" class="bar"></div></div></div></section>
+<p class="small">La phonétique est volontairement simplifiée pour un francophone. La voix dépend des voix coréennes installées sur l'appareil.</p>
+</main>
+<script>
+const terms=[
+{c:"Coup de pied",k:"Apchagi",p:"ap-tcha-gui",f:"Coup de pied frontal"},
+{c:"Coup de pied",k:"Dollyeochagi",p:"dol-lyo-tcha-gui",f:"Coup de pied circulaire"},
+{c:"Coup de pied",k:"Yeopchagi",p:"yeop-tcha-gui",f:"Coup de pied latéral"},
+{c:"Blocage",k:"Araemakgi",p:"a-rè-mak-gui",f:"Blocage bas"},
+{c:"Blocage",k:"Eolgulmakgi",p:"eol-goul-mak-gui",f:"Blocage haut / visage"},
+{c:"Poing",k:"Jireugi",p:"dji-reu-gui",f:"Coup de poing"}
+];
+const positions=[
+{k:"Junbi-jase",ko:"준비자세",p:"djoun-bi-dja-sé",f:"Position de préparation",img:"junbi_jase.svg",d:"Position utilisée pour se préparer avant l'exécution d'une technique."},
+{k:"Ap-seogi",ko:"앞서기",p:"ap-seo-gui",f:"Position avant courte",img:"ap_seogi.svg",d:"Position courte vers l'avant, naturelle et mobile."},
+{k:"Ap-kubi",ko:"앞굽이",p:"ap-kou-bi",f:"Position avant longue",img:"ap_kubi.svg",d:"Position longue vers l'avant, avec le poids davantage porté sur la jambe avant."},
+{k:"Dwit-kubi",ko:"뒷굽이",p:"dwit-kou-bi",f:"Position arrière",img:"dwit_kubi.svg",d:"Position avec le poids principalement placé sur la jambe arrière."},
+{k:"Kkoa-seogi",ko:"꼬아서기",p:"kkoa-seo-gui",f:"Position croisée / en X",img:"kkoa_seogi.svg",d:"Position où les jambes sont croisées pour certains déplacements ou transitions."},
+{k:"Niunja-seogi",ko:"니은자서기",p:"ni-eun-dja-seo-gui",f:"Position en L",img:"niunja_seogi.svg",d:"Position en forme de L, utile pour la stabilité et certaines défenses."}
+];
+let selectedPosition=positions[1];
+let prog=JSON.parse(localStorage.getItem("tkdfinal")||'{"ok":0,"total":0}');
+const save=()=>localStorage.setItem("tkdfinal",JSON.stringify(prog));
+
+let selectedVoice=null;
+function loadVoices(){
+ if(!("speechSynthesis" in window))return;
+ const voices=speechSynthesis.getVoices().filter(v=>/^ko(-|_)?/i.test(v.lang)||/korean|한국/i.test(v.name));
+ const sel=document.querySelector("#voiceSelect"); sel.innerHTML="";
+ if(!voices.length){sel.innerHTML='<option>Voix coréenne système</option>';return}
+ const male=/male|man|남성|injoon|hyunsu|minsu|jun/i;
+ voices.sort((a,b)=>(male.test(b.name)?1:0)-(male.test(a.name)?1:0));
+ voices.forEach((v,i)=>{let o=document.createElement("option");o.value=i;o.textContent=v.name+" — "+v.lang;sel.appendChild(o)});
+ selectedVoice=voices[0]; sel.onchange=()=>selectedVoice=voices[Number(sel.value)]||voices[0];
+}
+if("speechSynthesis" in window){loadVoices();speechSynthesis.onvoiceschanged=loadVoices}
+function speak(x){if(!("speechSynthesis"in window))return;let u=new SpeechSynthesisUtterance(x);u.lang="ko-KR";u.rate=.62;u.pitch=.82;if(selectedVoice)u.voice=selectedVoice;speechSynthesis.cancel();speechSynthesis.speak(u)}
+document.querySelector("#testVoice").onclick=()=>speak("태권도");
+
+function guide(success,text){
+ document.querySelector("#guide").src=success?"tkd_salut.gif":"tkd_garde.gif";
+ document.querySelector("#msg").innerHTML=text;
+}
+function renderTerms(){
+ document.querySelector("#terms").innerHTML=terms.map(x=>`<div class="card"><div class="cat">${x.c}</div><div class="term">${x.k}</div><div class="phon">[${x.p}]</div><div>${x.f}</div><br><button class="btn alt" onclick="speak('${x.k}')">🔊 Écouter</button></div>`).join("");
+}
+function renderPositions(){
+ document.querySelector("#positionsList").innerHTML=positions.map((x,i)=>`<div class="card poscard" onclick="showPosition(${i})"><img src="${x.img}"><div><div class="cat">Position</div><div class="term">${x.k}</div><div class="phon">[${x.p}]</div><div>${x.f}</div></div></div>`).join("");
+}
+function showPosition(i){
+ selectedPosition=positions[i];
+ document.querySelectorAll(".tab,.panel").forEach(x=>x.classList.remove("active"));
+ document.querySelector('.tab[data-t="detail"]').classList.add("active");
+ document.querySelector("#detail").classList.add("active");
+ document.querySelector("#detailBox").innerHTML=`<div class="card detail"><div class="cat">Position</div><div class="term">${selectedPosition.k}</div><div style="font-size:1.3rem">${selectedPosition.ko}</div><div class="phon">[${selectedPosition.p}]</div><div>${selectedPosition.f}</div><img src="${selectedPosition.img}"><p>${selectedPosition.d}</p><button class="btn" onclick="speak('${selectedPosition.ko}')">🔊 Écouter la prononciation</button></div>`;
+}
+function quiz(){
+ const q=positions[Math.floor(Math.random()*positions.length)];
+ const opts=[q,...positions.filter(x=>x!==q).sort(()=>Math.random()-.5).slice(0,3)].sort(()=>Math.random()-.5);
+ document.querySelector("#quizBox").innerHTML=`<div class="card detail"><div class="small">Comment s'appelle cette position ?</div><img src="${q.img}"><div class="choices">${opts.map(o=>`<button class="choice" data-ok="${o===q}">${o.k} — ${o.f}</button>`).join("")}</div></div>`;
+ document.querySelectorAll(".choice").forEach(b=>b.onclick=()=>{
+  if(document.querySelector(".choice.ok"))return;
+  prog.total++;
+  if(b.dataset.ok==="true"){prog.ok++;b.classList.add("ok");guide(true,"Bravo ! 🥋<span>Bonne réponse.</span>")}
+  else{b.classList.add("bad");document.querySelector('.choice[data-ok="true"]').classList.add("ok");guide(false,"Presque !<span>Regarde la bonne réponse et réessaie.</span>")}
+  save();setTimeout(quiz,1400);
+ });
+}
+function renderProgress(){let r=prog.total?Math.round(prog.ok/prog.total*100):0;document.querySelector("#stats").textContent=`${prog.ok} bonnes réponses sur ${prog.total} — ${r} %`;document.querySelector("#bar").style.width=r+"%"}
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab,.panel").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelector("#"+b.dataset.t).classList.add("active");if(b.dataset.t==="detail")showPosition(positions.indexOf(selectedPosition));if(b.dataset.t==="quiz")quiz();if(b.dataset.t==="progress")renderProgress()});
+renderTerms();renderPositions();showPosition(1);document.querySelector('.tab[data-t="detail"]').classList.remove("active");document.querySelector("#detail").classList.remove("active");document.querySelector('.tab[data-t="terms"]').classList.add("active");document.querySelector("#terms").classList.add("active");
+if("serviceWorker"in navigator)navigator.serviceWorker.register("./sw.js");
+</script>
+</body></html>
